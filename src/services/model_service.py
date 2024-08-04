@@ -1,8 +1,4 @@
-import os
-
-
 def get_glb_bytes(file_path):
-    print("Current working directory:", os.getcwd())
     try:
         with open(file_path, 'rb') as file:
             return file.read()
