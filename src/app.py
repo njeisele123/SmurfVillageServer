@@ -22,7 +22,7 @@ db.init_app(app)
 # Routes
 app.register_blueprint(riot_bp, url_prefix='/api/riot')
 app.register_blueprint(glb_bp, url_prefix='/api/glb')
-app.register_blueprint(summoner_bp, url_prefix='/api/summoner');
+app.register_blueprint(summoner_bp, url_prefix='/api/summoner')
 
 if __name__ == '__main__':
     with app.app_context():
