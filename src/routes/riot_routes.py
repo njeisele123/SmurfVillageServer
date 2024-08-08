@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from src.services.riot_service import get_summoner_data, get_matches, get_match
+from src.services.riot_service import get_summoner_data, get_matches, get_match, get_summoner_by_id, get_league_entries
 
 riot_bp = Blueprint('riot', __name__)
 
@@ -19,4 +19,17 @@ def matches(puuid):
 @riot_bp.route('/match/<mid>')
 def match(mid):
     data = get_match(mid)
+    return jsonify(data)
+
+
+@riot_bp.route('/summoner-by-id/<puuid>')
+def summoner_by_id(puuid):
+    data = get_summoner_by_id(puuid)
+    print("by-name ", data)
+    return jsonify(data)
+
+
+@riot_bp.route('/league-entries/<summoner_id>')
+def league_entries(summoner_id):
+    data = get_league_entries(summoner_id)
     return jsonify(data)

@@ -48,7 +48,6 @@ def create_summoner():
 
 @summoner_bp.route('/accounts/<string:ip_address>', methods=['DELETE'])
 def delete_accounts(ip_address):
-    print('ip to delete: ', ip_address)
     Summoner.query.filter_by(ip=ip_address).delete()
     db.session.commit()
     return jsonify({'message: ', 'Successfully deleted accounts'}), 200
