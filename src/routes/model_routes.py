@@ -13,6 +13,7 @@ glb_bp = Blueprint('glb', __name__)
 
 @glb_bp.route('/champion/<name>')
 def summoner(name):
+    print("name look up is: ", name)
     glb_bytes = get_glb_bytes(f'resources/glb/champions/{name}.glb')
 
     if glb_bytes is None:
